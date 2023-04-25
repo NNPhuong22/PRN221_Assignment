@@ -1,0 +1,97 @@
+﻿@page
+@using System.Text.Json
+@model MyRazorPage.Pages.UserPage.CanceledOrderModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <div id="content-left">
+                @if (HttpContext.Session.GetString("CusInfo") != null)
+                {
+                    var option = new JsonSerializerOptions()
+                {
+                    AllowTrailingCommas = true,
+                    WriteIndented = true,
+                    ReadCommentHandling = JsonCommentHandling.Skip
+                };
+                    var acc = JsonSerializer.Deserialize<MyRazorPage.Models.Customer>(HttpContext.Session.GetString("CusInfo"), option);
+                    <span>Welcome: @acc.ContactName</span>
+
+                    <li><a asp-page="/UserPage/Profile">Profile</a></li>
+                    <li><a asp-page-handler="LogOut" asp-page="/Account/SignIn">SignOut</a></li>
+                }
+                <h3>Account Management</h3>
+                <ul>
+                    <a asp-page="/UserPage/Profile">
+                    <li>Personal information</li></a>
+                </ul>
+                <h3>My order</h3>
+                <ul>
+                    <a asp-page="/UserPage/AllOrder">
+                    <li>All orders</li></a>
+                    <a asp-page="/UserPage/CanceledOrder">
+                    <li>Canceled order</li></a>
+                </ul>
+            </div>
+            <div id="content-right">
+                <div class="path">LIST ORDERS</b></div>
+                <div class="content-main">
+                    <div id="profile-content-order">
+                        @if (Model.Customer != null)
+                        {
+                            int a = 1;
+                            foreach (var o in Model.Customer.Orders)
+                            {
+                                if (o.RequiredDate==null)
+                                {
+                                    <div>
+                                        <div class="profile-order-title">
+                                            <div class="profile-order-title-left">
+                                                <div>Order creation date: @o.OrderDate</div>
+                                                <div>Order: <a>#@a</a></div>
+                                            </div>
+                                            <div class="profile-order-title-right">
+                                                <span style="color: red;">Cancel</span>
+                                            </div>
+                                        </div>
+                                        @foreach (var i in o.OrderDetails)
+                                        {
+                                                <div class="profile-order-content" style="margin-bottom:20px">
+                                                    <div class="profile-order-content-col1">
+                                                        <a href="detail.html"><img src="~/img/civic.jpg" width="100%" /></a>
+                                                    </div>
+                                                    <div class="profile-order-content-col2">@i.Product.ProductName</div>
+                                                    <div class="profile-order-content-col3">Quantity: @i.Quantity</div>
+                                                    <div class="profile-order-content-col4">@(i.UnitPrice * i.Quantity) $</div>
+                                                </div>
+                                            
+
+                                        }
+
+
+                                    </div>
+                                    a++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            <h4>There is no any order yet!</h4>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

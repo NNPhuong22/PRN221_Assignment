@@ -1,0 +1,136 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MyRazorPage
+build_property.RootNamespace = MyRazorPage
+build_property.ProjectDir = F:\FPT\Semeter8\PRN221\CODE\Web\MyRazorPage\MyRazorPage\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = F:\FPT\Semeter8\PRN221\CODE\Web\MyRazorPage\MyRazorPage
+build_property._RazorSourceGeneratorDebug = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Account/Forgot.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxGb3Jnb3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Account/ResetPass.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZXNldFBhc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Account/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxTaWduSW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Account/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxTaWduVXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/CustomerControl/AllCustomer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ3VzdG9tZXJDb250cm9sXEFsbEN1c3RvbWVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/EmployeesControl/AllEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRW1wbG95ZWVzQ29udHJvbFxBbGxFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/EmployeesControl/CreateEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRW1wbG95ZWVzQ29udHJvbFxDcmVhdGVFbXBsb3llZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/EmployeesControl/EditEmployee.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRW1wbG95ZWVzQ29udHJvbFxFZGl0RW1wbG95ZWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/Order/AllOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJcQWxsT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/Order/OrderDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cT3JkZXJcT3JkZXJEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/Product/AllProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdFxBbGxQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/Product/CreateProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdFxDcmVhdGVQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Admin/Product/UpdateProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUHJvZHVjdFxVcGRhdGVQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/ErrorPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3JQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Shared/_Layout1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/Shared/_Layout2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/UserPage/AllOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VcQWxsT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/UserPage/AllProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VcQWxsUHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/UserPage/CanceledOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VcQ2FuY2VsZWRPcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/UserPage/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VcQ2FydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/UserPage/CategoryProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VcQ2F0ZWdvcnlQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/UserPage/EditProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VcRWRpdFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/UserPage/Invoice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VcSW52b2ljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/UserPage/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VcUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/UserPage/SignalrProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlclBhZ2VcU2lnbmFsclByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/FPT/Semeter8/PRN221/CODE/Web/MyRazorPage/MyRazorPage/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

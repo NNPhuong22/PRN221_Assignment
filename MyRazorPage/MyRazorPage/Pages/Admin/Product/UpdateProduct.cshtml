@@ -1,0 +1,77 @@
+﻿@page
+@model MyRazorPage.Pages.Admin.Product.UpdateProductModel
+@{
+    Layout = "_Layout2";
+}
+<div id="content">
+    <div id="content-left">
+        <ul>
+            <a asp-page="/Admin/Dashboard">
+            <li>Dashboard</li>  </a>
+            <a asp-page="/Admin/Order/AllOrder">
+            <li>Orders</li></a>
+            <a asp-page="/Admin/Product/AllProduct">
+            <li>Products</li></a>
+            <a asp-page="/Admin/CustomerControl/AllCustomer">
+            <li>Customers</li></a>
+            <a asp-page="/Admin/EmployeesControl/AllEmployee">
+            <li>Employee</li></a>
+        </ul>
+    </div>
+    <div id="content-right">
+        <div class="path-admin">Edit PRODUCT</b></div>
+        <div class="content-main">
+            <form id="content-main-product" asp-route-id="@Model.proId" method="post">
+                <div class="content-main-1">
+                    <label>Product name (*):</label><br />
+                    <input type="text" asp-for="@Model.product.ProductName"><br />
+                    <span class="msg-error" asp-validation-for="product.ProductName"></span><br />
+
+                    <label>Unit price:</label><br />
+                    <input asp-for="product.UnitPrice"><br />
+                    <span class="msg-error" asp-validation-for="product.UnitPrice"></span><br />
+
+                    <label>Quantity per unit:</label><br />
+                    <input asp-for="product.QuantityPerUnit"><br />
+                    <span class="msg-error" asp-validation-for="product.QuantityPerUnit"></span><br />
+
+                    <label>Units in stock (*):</label><br />
+                    <input asp-for="product.UnitsInStock"><br />
+                    <span class="msg-error" asp-validation-for="product.UnitsInStock"></span><br />
+
+                </div>
+                <div class="content-main-1">
+                    <label>Category (*):</label><br />
+                    <select name="ddlCategory">
+
+                        @foreach (var item in Model.categories)
+                        {
+                            if (item.CategoryId==Model.product.CategoryId)
+                            {
+                                <option selected value="@item.CategoryId">@item.CategoryName</option>
+                            }
+                            <option value="@item.CategoryId">@item.CategoryName</option>
+                        }
+
+                    </select>
+                    <br />
+                    <label>Reorder level:</label><br />
+                    <input type="text" asp-for="@Model.ReorderLevel" disabled><br />
+                    <label>Units on order:</label><br />
+                    <input type="text" asp-for="@Model.UnitOnOrder" disabled><br />
+                    <label>Discontinued:</label><br />
+                    @if (Model.Discontinue==true)
+                    {
+                        <input type="checkbox" checked name="chkDiscontinued" id=""><br />
+                    }else
+                    {
+                        <input type="checkbox" name="chkDiscontinued" id="chkDiscontinued">
+                        <br />
+                    }
+
+                    <input type="submit" value="Save" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

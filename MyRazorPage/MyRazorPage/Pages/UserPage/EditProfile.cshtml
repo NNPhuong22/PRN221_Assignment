@@ -1,0 +1,73 @@
+﻿@page
+@model MyRazorPage.Pages.UserPage.EditProfileModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <div id="content-left">
+                <h3 style="font-weight: normal;">Welcome, Phạm Ngọc Minh Châu</h3>
+                <h3>Account Management</h3>
+                <ul>
+                    <a href="profile.html">
+                    <li>Personal information</li></a>
+                </ul>
+                <h3>My order</h3>
+                <ul>
+                    <a href="profile1.html">
+                    <li>All orders</li></a>
+                    <a href="#">
+                    <li>Canceled order</li></a>
+                </ul>
+            </div>
+            <div id="content-right">
+                <div class="path">Personal information</b></div>
+                <div class="content-main">
+                    <form method="post">
+                        <div id="profile-content">
+                            <div class="profile-content-col">
+                                <div>
+                                    <input type="hidden" asp-for="Customer.CustomerId"  />
+                                    Company name: <br />
+                                    <input asp-for="Customer.CompanyName" /><br />
+                                    <span class="msg-error" asp-validation-for="Customer.CompanyName"></span><br />
+                                </div>
+                                <div>
+                                    Contact name: <br />
+                                    <input asp-for="Customer.ContactName" /><br />
+                                    <span class="msg-error" asp-validation-for="Customer.ContactName"></span>
+                                </div>
+                                <div>
+                                    <button type="submit" >Edit Profile</button>
+
+                                </div>
+                            </div>
+                            <div class="profile-content-col" style="margin-left:30px">
+                                <div>
+                                    Company title: <br />
+                                    <input asp-for="Customer.ContactTitle" /><br />
+                                    <span class="msg-error" asp-validation-for="Customer.ContactTitle"></span><br />
+                                </div>
+                                <div>
+                                    Address: <br />
+                                    <input asp-for="Customer.Address" /><br />
+                                    <span class="msg-error" asp-validation-for="Customer.Address"></span><br />
+                                </div>
+                            </div><br/>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

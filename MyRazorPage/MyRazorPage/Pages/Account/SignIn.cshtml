@@ -1,0 +1,28 @@
+﻿@page
+@model MyRazorPage.Pages.Account.SignInModel
+@{
+}
+
+<div id="form">
+    <div id="form-title">
+        <span><a href="~/account/signup">SIGN UP</a></span>
+        <span><a href="~/account/signin" style="color: red;">SIGN IN</a></span>
+    </div>
+
+    <div class="msg-error" style="text-align:left">
+        @ViewData["msg"]
+    </div>
+    <div id="form-content">
+        <form method="post">
+            <input type="hidden" asp-for="Account.AccountId" value="1" />
+            <label>Email<span style="color: red;">*</span></label><br />
+            <input asp-for="Account.Email" /><br />
+            <span class="msg-error" asp-validation-for="Account.Email"></span><br />
+            <label>Password<span style="color: red;">*</span></label><br />
+            <input asp-for="Account.Password" /><br />
+            <span class="msg-error" asp-validation-for="Account.Password"></span><br />
+            <div><a asp-page="/Account/Forgot">Forgot password?</a></div>
+            <input type="submit" value="SIGN IN" /><br />
+        </form>
+    </div>
+</div>

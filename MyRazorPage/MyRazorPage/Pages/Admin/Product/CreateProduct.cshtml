@@ -1,0 +1,66 @@
+﻿@page
+@model MyRazorPage.Pages.Admin.Product.CreateProductModel
+@{
+    Layout = "_Layout2";
+
+}
+<div id="content">
+    <div id="content-left">
+        <ul>
+            <a asp-page="/Admin/Dashboard">
+            <li>Dashboard</li>  </a>
+            <a asp-page="/Admin/Order/AllOrder">
+            <li>Orders</li></a>
+            <a asp-page="/Admin/Product/AllProduct">
+            <li>Products</li></a>
+            <a asp-page="/Admin/CustomerControl/AllCustomer">
+            <li>Customers</li></a>
+            <a asp-page="/Admin/EmployeesControl/AllEmployee">
+            <li>Employee</li></a>
+        </ul>
+    </div>
+    <div id="content-right">
+        <div class="path-admin">CREATE A NEW PRODUCT</b></div>
+        <div class="content-main">
+            <form id="content-main-product" method="post">
+                <div class="content-main-1">
+                    <label>Product name (*):</label><br />
+                    <input type="text" asp-for="product.ProductName"><br />
+                    <span class="msg-error" asp-validation-for="product.ProductName"></span><br />
+
+                    <label>Unit price:</label><br />
+                    <input  asp-for="product.UnitPrice"><br/>
+                    <span class="msg-error" asp-validation-for="product.UnitPrice"></span><br />
+
+                    <label>Quantity per unit:</label><br />
+                    <input  asp-for="product.QuantityPerUnit"><br />
+                    <span class="msg-error" asp-validation-for="product.QuantityPerUnit"></span><br />
+
+                    <label>Units in stock (*):</label><br />
+                    <input  asp-for="product.UnitsInStock"><br />
+                    <span class="msg-error" asp-validation-for="product.UnitsInStock"></span><br />
+
+                </div>
+                <div class="content-main-1">
+                    <label>Category (*):</label><br />
+                    <select name="ddlCategory">
+
+                        @foreach (var item in Model.categories)
+                        {
+                            <option value="@item.CategoryId">@item.CategoryName</option>
+                        }
+
+                    </select>
+                    <br />
+                    <label>Reorder level:</label><br />
+                    <input type="text" name="txtReorderLevel" id="" disabled><br />
+                    <label>Units on order:</label><br />
+                    <input type="text" name="txtUnitsOnOrder" id="" disabled><br />
+                    <label>Discontinued:</label><br />
+                    <input type="checkbox" name="chkDiscontinued" disabled id=""><br />
+                    <input type="submit" value="Save" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

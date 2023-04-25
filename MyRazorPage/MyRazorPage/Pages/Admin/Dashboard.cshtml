@@ -1,0 +1,168 @@
+﻿@page
+@model MyRazorPage.Pages.Admin.DashboardModel
+@{
+    Layout = "_Layout2";
+}
+<div id="content">
+    <div id="content-left">
+        <ul>
+            <a asp-page="/Admin/Dashboard">
+            <li>Dashboard</li>  </a>
+            <a asp-page="/Admin/Order/AllOrder">
+            <li>Orders</li></a>
+            <a asp-page="/Admin/Product/AllProduct">
+            <li>Products</li></a>
+            <a asp-page="/Admin/CustomerControl/AllCustomer">
+            <li>Customers</li></a>
+            <a asp-page="/Admin/EmployeesControl/AllEmployee">
+            <li>Employee</li></a>
+        </ul>
+    </div>
+    <div id="content-right">
+        <div class="path-admin">DASHBOARD</b></div>
+        <div class="content-main">
+            <div id="content-main-dashboard">
+                <div id="dashboard-1">
+                    <div id="dashboard-1-container">
+                        <div class="dashboard-item">
+                            <div class="dashboard-item-title">Weekly Sales</div>
+                            <div class="dashboard-item-content">$@(Convert.ToInt32(Model.weeklySale))K</div>
+                            
+                        </div>
+                        <div class="dashboard-item">
+                            <div class="dashboard-item-title">Total Orders</div>
+                            <div class="dashboard-item-content">$@(Convert.ToInt32(Model.totalSale))K</div>
+                        </div>
+                        <div class="dashboard-item">
+                            <div class="dashboard-item-title">Total Customers</div>
+                            <div class="dashboard-item-content">@Model.totalCustomer</div>
+                        </div>
+                        <div class="dashboard-item">
+                            <div class="dashboard-item-title">Total Guest</div>
+                            <div class="dashboard-item-content">@Model.totalGuest</div>
+                        </div>
+                    </div>
+                </div>
+                <form method="post" asp-page-handler="Filtering">
+                    <select name="ddlCategory" id="ddlCategory" onchange="go()">
+                        <option value="0">--- Select ---</option>
+                        
+                            <option value="2023"><a> 2023</a></option>
+                            <option value="2022"><a> 2022</a></option>
+                        <option value="1998"><a> 1998</a></option>
+                        <option value="1997"><a> 1997</a></option>
+                    </select>
+                    <input type="submit" value="Filter">
+                </form>
+                <div id="dashboard-2">
+                    <div id="chart" style="text-align: center;">
+                        <div id="chart1">
+                            <h3>Statistic Orders (Month)</h3>
+                            <canvas id="myChart1" style="width: 100%;"></canvas>
+                        </div>
+                        <div id="chart2">
+                            <canvas id="myChart2" style="width: 80%;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <input type="text" hidden name="Jan" id="Jan" value="@Model.Jan" />
+    <br>
+    <input type="text" hidden name="Feb" id="Feb" value="@Model.Feb" />
+    <br>
+    <input type="text" hidden name="Mar" id="Mar" value="@Model.Mar" />
+    <br>
+    <input type="text" hidden name="Apr" id="Apr" value="@Model.Apr" />
+    <br>
+    <input type="text" hidden name="May" id="May" value="@Model.May" />
+    <br>
+    <input type="text" hidden name="Jun" id="Jun" value="@Model.Jun" />
+    <br>
+    <input type="text" hidden name="Jul" id="Jul" value="@Model.Jul" />
+    <br>
+    <input type="text" hidden name="Aug" id="Aug" value="@Model.Aug" />
+    <br>
+    <input type="text" hidden name="Sep" id="Sep" value="@Model.Sep" />
+    <br>
+    <input type="text" hidden name="Oct" id="Oct" value="@Model.Oct" />
+    <br>
+    <input type="text" hidden name="Nov" id="Nov" value="@Model.Nov" />
+    <br>
+    <input type="text" hidden name="Dec" id="Dec" value="@Model.Dec" />
+    <br>
+    <input type="text" hidden name="totalCus" id="totalCus" value="@Model.totalGuest" />
+    <br>
+    <input type="text" hidden name="newCus" id="newCus" value="@Model.totalCustomer" />
+    <br>
+</div>
+
+<script type="text/javascript">
+    function go(href) {
+        console.log("abc");
+        var a = document.getElementById('ddlCategory').value;
+        window.location.replace('http://localhost:5000/Admin/Dashboard?id='+a+'&handler=Filtering');
+    }
+    function OrdersChart() {
+        var xValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+        var a = document.getElementById('Jan').value;
+        var b = document.getElementById('Feb').value;
+        var c = document.getElementById('Mar').value;
+        var d = document.getElementById('Apr').value;
+        var e = document.getElementById('May').value;
+        var f = document.getElementById('Jun').value;
+        var g = document.getElementById('Jul').value;
+        var h = document.getElementById('Aug').value;
+        var i = document.getElementById('Sep').value;
+        var k = document.getElementById('Oct').value;
+        var l = document.getElementById('Nov').value;
+        var m = document.getElementById('Dec').value;
+        
+        new Chart("myChart1", {
+            type: "line",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    data: [a, b, c, d, e, f, g, h, i, k, l, m],
+                    borderColor: "sienna",
+                    fill: true
+                }]
+            },
+            options: {
+                legend: { display: false }
+            }
+        });
+    }
+
+    function CustomersChart() {
+        var xValues = ["Total", "New customer"];
+        var yValues = [totalCus, newCus];
+        var barColors = ["green", "red"];
+        var totalCus = document.getElementById('totalCus').value;
+        var newCust = document.getElementById('newCus').value;
+        new Chart("myChart2", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: [totalCus,newCust]
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "New Customers (30 daily Avg)"
+                }
+            }
+        });
+    }
+
+    OrdersChart();
+    CustomersChart();
+</script>

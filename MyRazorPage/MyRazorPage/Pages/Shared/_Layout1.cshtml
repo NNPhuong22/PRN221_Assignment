@@ -1,0 +1,65 @@
+﻿@using System.Text.Json
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link href="~/css/style.css" rel="stylesheet" />
+
+    <script language="JavaScript" type="text/javascript" src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script language="JavaScript" type="text/javascript" src="~/js/signalr/dist/browser/product.js"></script>
+    <script language="JavaScript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <div id="logo">
+                <a href="~/index"><img src="~/img/logo.png" /></a>
+            </div>
+            <div id="banner">
+                <ul>
+                    @if (Context.Session.GetString("CartList") != null)
+                    {
+                    var option = new JsonSerializerOptions()
+                    {
+                    AllowTrailingCommas = true,
+                    WriteIndented = true,
+                    ReadCommentHandling = JsonCommentHandling.Skip
+                    };
+                    var acc = JsonSerializer.Deserialize
+                    <List<MyRazorPage.Models.CartSession>>(Context.Session.GetString("CartList"), option);
+                            <li><a asp-page="/UserPage/Cart">Cart: @acc.Count()</a></li>
+                        }
+                        else
+                        {
+                            <li><a asp-page="/UserPage/Cart">Cart: 0</a></li>
+                        }
+                    @if (Context.Session.GetString("Custsession") != null)
+                    {
+                        
+                        <li><a asp-page="/UserPage/Profile">Profile</a></li>
+                        <li><a asp-page-handler="LogOut" asp-page="/Account/SignIn">SignOut</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-page="/Account/SignUp">SignUp</a></li>
+                        <li><a asp-page="/Account/SignIn">SignIn</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div id="content">
+            @RenderBody()
+        </div>
+        <div id="footer">footer</div>
+    </div>
+    @await RenderSectionAsync("Scripts", required: false)
+
+    
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+﻿@page
+@model MyRazorPage.Pages.Account.ForgotModel
+@{
+}
+
+<div id="form">
+    <h3 style="padding: 20px;">@Model.alert</h3>
+    @if (Model.id=="1")
+    {
+        <div style="padding: 0px 20px 10px;">
+            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">Go to email</a>
+    </div>
+    } 
+    <div id="form-content">
+        <form method="post">
+            <label>Enter your email address<span style="color: red;">*</span></label><br />
+            <input type="email" name="email" required /><br />
+            <input type="submit" value="GET PASSWORD" style="margin-bottom: 30px;" /><br />
+        </form>
+    </div>
+</div>

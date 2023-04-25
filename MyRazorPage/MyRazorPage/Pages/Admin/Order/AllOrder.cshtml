@@ -1,0 +1,146 @@
+﻿@page
+@model MyRazorPage.Pages.Admin.Order.AllOrderModel
+@{
+    Layout = "_Layout2";
+}
+<div id="content">
+    <div id="content-left">
+        <ul>
+            <a asp-page="/Admin/Dashboard">
+            <li>Dashboard</li>  </a>
+            <a asp-page="/Admin/Order/AllOrder">
+            <li>Orders</li></a>
+            <a asp-page="/Admin/Product/AllProduct">
+            <li>Products</li></a>
+            <a asp-page="/Admin/CustomerControl/AllCustomer">
+            <li>Customers</li></a>
+            <a asp-page="/Admin/EmployeesControl/AllEmployee">
+            <li>Employee</li></a>
+        </ul>
+    </div>
+    <div id="content-right">
+        <div class="path-admin">ORDERS LIST</b></div>
+        <div class="content-main">
+            <div id="content-main-dashboard">
+                <div id="order-title">
+                    <b>Filter by Order date:</b>
+                    <form method="post">
+                        From: <input type="date" id="dateFrom" name="txtStartOrderDate" value="@Model.FromDate" onchange="myFunction()" required  />
+                        To: <input type="date" id="dateTo" name="txtEndOrderDate" value="@Model.ToDate" min="2022-11-07" required />
+                        <input type="submit" value="Filter">
+                    </form>
+                </div>
+                <div id="product-title-3" style="width: 20%;">
+                    <a asp-page-handler="Export" asp-route-from="@Model.FromDate" asp-route-to="@Model.ToDate">Export order</a>
+                </div>
+                <div id="order-table">
+                    <table id="orders">
+                        <tr>
+                            <th>OrderID</th>
+                            <th>OrderDate</th>
+                            <th>RequiredDate</th>
+                            <th>ShippedDate</th>
+                            <th>Employee</th>
+                            <th>Customer</th>
+                            <th>Freight($)</th>
+                            <th>Status</th>
+                        </tr>
+                        @foreach (var item in Model.orders)
+                        {
+                            <tr>
+                                <td><a asp-page="/Admin/Order/OrderDetail" asp-route-id="@item.OrderId">@item.OrderId</a></td>
+                                <td>@item.OrderDate</td>
+                                <td>@item.RequiredDate</td>
+                                <td>@item.ShippedDate</td>
+                                <td>@item.Employee.LastName</td>
+                                <td>@item.Customer.ContactName</td>
+                                <td>@(Convert.ToInt32(item.Freight))</td>
+                                @if (item.RequiredDate == null)
+                                {
+                                    <td style="color: red;">Canceled</td>
+                                }
+                                else if (item.ShippedDate <= DateTime.Now && item.RequiredDate != null)
+                                {
+                                    <td style="color: blue;">Completed</td>
+                                }
+                                else
+                                {
+                                    <td style="color: green;">Pending | <a asp-page-handler="CancelOrder" asp-route-id="@item.OrderId">Cancel</a></td>
+                                }
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                <div id="paging">
+                    <div class="pagination">
+                        @if (Model.orders.Count() > 9)
+                        {
+                            @if (Model.CurrentPage != 1)
+                            {
+                                <a class="page-link" asp-page-handler="PagingPrevious" asp-route-id="@Model.CurrentPage" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="page-link" asp-page-handler="PagingPrevious" asp-route-id="@Model.CurrentPage" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            }
+
+
+                            @if (Model.CurrentPage == 1)
+                            {
+                                @for (int i = 1; i <= 3; i++)
+                                {
+                                    <a class="page-link" asp-page-handler="Paging" asp-route-id="@i">@i</a>
+                                }
+                            }
+                            else if (Model.CurrentPage == Model.TotalPages)
+                            {
+                                @for (int i = Model.TotalPages - 2; i <= Model.TotalPages; i++)
+                                {
+                                    <a class="page-link" asp-page-handler="Paging" asp-route-id="@i">@i</a>
+                                }
+                            }
+                            else
+                            {
+                                @for (int i = Model.CurrentPage - 1; i <= Model.CurrentPage + 1; i++)
+                                {
+                                    <a class="page-link" asp-page-handler="Paging" asp-route-id="@i">@i</a>
+                                }
+                            }
+
+                            @if (Model.CurrentPage + 1 <= Model.TotalPages)
+                            {
+                                <a class="page-link" asp-page-handler="PagingNext" asp-route-id="@Model.CurrentPage" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="page-link" asp-page-handler="PagingNext" asp-route-id="@Model.CurrentPage" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            }
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function myFunction(){
+        var fromDate = document.getElementById("dateFrom").value;
+
+        document.getElementById("dateTo").setAttribute("min", fromDate);
+    }
+</script>

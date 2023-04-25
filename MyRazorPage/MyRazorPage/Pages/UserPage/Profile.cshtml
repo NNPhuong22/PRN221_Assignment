@@ -1,0 +1,75 @@
+﻿@page
+@using System.Text.Json
+@model MyRazorPage.Pages.UserPage.ProfileModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <div id="content-left">
+                <h3 style="font-weight: normal;">Welcome, @Model.Customer.ContactName</h3>
+                @if (HttpContext.Session.GetString("CusInfo") != null)
+                {
+                    var option = new JsonSerializerOptions()
+                {
+                    AllowTrailingCommas = true,
+                    WriteIndented = true,
+                    ReadCommentHandling = JsonCommentHandling.Skip
+                };
+                    var acc = JsonSerializer.Deserialize<MyRazorPage.Models.Customer>(HttpContext.Session.GetString("CusInfo"), option);
+                    <span>Welcome: @acc.ContactName</span>
+
+                    <li><a asp-page="/UserPage/Profile">Profile</a></li>
+                    <li><a asp-page-handler="LogOut" asp-page="/Account/SignIn">SignOut</a></li>
+                }
+                <h3>Account Management</h3>
+                <ul>
+                    <a asp-page="/UserPage/Profile">
+                    <li>Personal information</li></a>
+                </ul>
+                <h3>My order</h3>
+                <ul>
+                    <a asp-page="/UserPage/AllOrder">
+                    <li>All orders</li></a>
+                    <a asp-page="/UserPage/CanceledOrder">
+                    <li>Canceled order</li></a>
+                </ul>
+            </div>
+            <div id="content-right">
+                <div class="path">Personal information</b></div>
+                <div class="content-main">
+                        <div id="profile-content">
+                            <div class="profile-content-col">
+                                <div>Company name: <br />@Model.Customer.CompanyName</div>
+                                <div>Contact name: <br />@Model.Customer.ContactName</div>
+                                <div>
+                                <form method="get">
+                                    <button type="submit" asp-page="/UserPage/EditProfile">Edit Profile</button>
+                                </form>
+                                </div>
+                            </div>
+                            <div class="profile-content-col">
+                                <div>Contact title: <br />@Model.Customer.ContactTitle</div>
+                                <div>Address: <br />@Model.Customer.Address</div>
+                            </div>
+                            <div class="profile-content-col">
+                                <div>Email: <br />@Model.Account.Email</div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿@page
+@model MyRazorPage.Pages.IndexModel
+
+
+<div id="content-left">
+    <h3>CATEGORY</h3>
+    <ul>
+        @foreach (var item in Model.categories)
+        {
+           
+        <li><a asp-route-id="@item.CategoryId"  asp-page="UserPage/CategoryProduct">@item.CategoryName</a> </li>
+        }
+    </ul>
+</div>
+<div id="content-right">
+    <div class="path">Best Sale</b>
+        <a style="margin-left:800px" asp-page="/UserPage/AllProduct" as>See all</a>
+        </div>
+    <div class="content-main">
+
+        @if (Model.hotProduct != null)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+               <div class="product">
+                <a href=""><img src="~/img/civic.jpg" width="100%" /></a>
+                <div class="name"><a href="">@Model.hotProduct[i].Product.ProductName</a></div>
+                    <div class="price">@Model.hotProduct[i].Product.UnitPrice</div>
+                    <div><a asp-route-id="@Model.hotProduct[i].ProductId"  asp-page-handler="AddProduct">Buy now</a></div>
+            </div> 
+            }
+            
+        }
+    </div>
+    <div class="path">New Product</b>
+        </div>
+    <div class="content-main">
+        
+        @foreach (var item in Model.newProduct)
+        {
+           <div class="col mb-5">
+            <a href=""><img src="img/1.jpg" width="100%" /></a>
+            <div class="name"><a href="">@item.ProductName</a></div>
+            <div class="price">$@item.UnitPrice</div>
+                <div>
+                    <a asp-route-id="@item.ProductId" asp-page-handler="AddProduct">Buy now</a>
+                </div>
+        </div> 
+        }
+        
+    </div>
+</div>

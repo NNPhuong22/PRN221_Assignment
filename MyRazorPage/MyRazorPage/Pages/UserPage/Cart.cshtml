@@ -1,0 +1,135 @@
+﻿@page
+@model MyRazorPage.Pages.UserPage.CartModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <div id="cart">
+                <div id="cart-title">
+                    <h3>SHOPPING CART</h3>
+                </div>
+                <div id="cart-content">
+
+                    @if (Model.cart != null)
+                    {
+                        @foreach (var item in Model.cart)
+                        {
+                            <div class="cart-item">
+                                <div class="cart-item-infor">
+                                    <div class="cart-item-img">
+                                        <img src="~/img/civic.jpg" />
+                                    </div>
+                                    <div class="cart-item-name">
+                                        <a href="detail.html?id=1">@item.ProductName</a>
+                                    </div>
+                                    <div class="cart-item-price">
+                                        @item.Price $
+                                    </div>
+                                    <div class="cart-item-button">
+                                        <a asp-route-id="@item.ProductId" asp-page-handler="RemoveProduct">Remove</a>
+                                    </div>
+                                </div>
+                                <div class="cart-item-function">
+                                    <a asp-route-id="@item.ProductId" asp-page-handler="MinusProduct">-</a>
+                                    <input type="text" value="@item.Quantity" disabled />
+                                    <a asp-route-id="@item.ProductId" asp-page-handler="PlusProduct">+</a>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <h4>You have no product in cart! <a asp-page="/Index">Back to shop</a></h4>
+                    }
+                </div>
+                @if (Model.cart != null)
+                {
+                    <div id="cart-summary">
+                        <div id="cart-summary-content">Total amount: <span style="color:red">@Model.TotalMoney $</span></div>
+                    </div>
+                }
+                @if (HttpContext.Session.GetString("Custsession") == null)
+                {
+                    <form method="post" asp-route-total="@Model.TotalMoney">
+                        <div id="customer-info">
+                            <div id="customer-info-content">
+                                <h3>CUSTOMER INFORMATION:</h3>
+                                <div id="customer-info-detail">
+                                    <div id="customer-info-left">
+                                        <label style="margin-bottom:10px">Company Name *</label>
+                                        <input asp-for="@Model.customer1.CompanyName" style="margin-top:10px" />
+                                        <span class="msg-error" asp-validation-for="@Model.customer1.CompanyName"></span><br />
+
+                                        <label style="margin-bottom:10px">Contact Name</label>
+                                        <input asp-for="@Model.customer1.ContactName" style="margin-top:10px" />
+                                        <span class="msg-error" asp-validation-for="@Model.customer1.ContactName"></span><br />
+
+                                    </div>
+                                    <div id="customer-info-right">
+                                        <label style="margin-bottom:10px">Contact title *</label>
+                                        <input asp-for="@Model.customer1.ContactTitle" style="margin-top:10px" />
+                                        <span class="msg-error" asp-validation-for="@Model.customer1.ContactTitle"></span><br />
+
+                                        <label style="margin-bottom:10px">Address</label>
+                                        <input asp-for="@Model.customer1.Address" style="margin-top:10px" />
+                                        <span class="msg-error" asp-validation-for="@Model.customer1.Address"></span><br />
+
+                                        <label style="margin-bottom:10px">Required Date</label>
+                                        <input asp-for="@Model.requiredDateOrder" style="margin-top:10px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cart-order">
+                            <input type="submit" value="ORDER" />
+                        </div>
+                    </form>
+                }else
+                {
+                        <form method="post" asp-route-total="@Model.TotalMoney">
+                        <div id="customer-info">
+                            <div id="customer-info-content">
+                                <h3>CUSTOMER INFORMATION:</h3>
+                                <div id="customer-info-detail">
+                                    <div id="customer-info-left">
+                                        <label style="margin-bottom:10px">Company Name *</label>
+                                        <input asp-for="@Model.existedCustomer.CompanyName" style="margin-top:10px" disabled/>
+
+                                        <label style="margin-bottom:10px">Contact Name</label>
+                                        <input asp-for="@Model.existedCustomer.ContactName" style="margin-top:10px" disabled />
+
+                                    </div>
+                                    <div id="customer-info-right">
+                                        <label style="margin-bottom:10px">Contact title *</label>
+                                        <input asp-for="@Model.existedCustomer.ContactTitle" style="margin-top:10px" disabled />
+
+                                        <label style="margin-bottom:10px">Address</label><br/>
+                                        <input asp-for="@Model.existedCustomer.Address" style="margin-top:10px" disabled />
+
+                                        <label style="margin-bottom:10px">Required Date</label>
+                                        <input asp-for="@Model.requiredDateOrder" style="margin-top:10px" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="cart-order">
+                            <input type="submit" value="ORDER" />
+                        </div>
+                    </form>
+                }
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
